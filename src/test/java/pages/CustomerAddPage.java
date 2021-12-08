@@ -10,11 +10,14 @@ public class CustomerAddPage extends BasePage {
         super(driver);
     }
 
+    //region Page Elements
     By txtFirstName = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]");
     By txtLastName = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/input[1]");
     By txtPostCode = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/input[1]");
     By btnSave = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/button[1]");
+    //endregion
 
+    //region Page Methods
     public CustomerAddPage defineCustomerAdd(String name, String lastname, String postCode) {
         System.out.println("customer add form alanları dolduruluyor.");
         writeText(txtFirstName, name);
@@ -31,4 +34,5 @@ public class CustomerAddPage extends BasePage {
         driver.switchTo().alert().accept();
         return this;
     }
+    //endregion
 }

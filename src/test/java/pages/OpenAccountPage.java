@@ -9,10 +9,13 @@ public class OpenAccountPage extends BasePage {
         super(driver);
     }
 
+    //region Page ELements
     By userSelect = By.xpath("//select[@id='userSelect']");
     By currencySelect = By.xpath("//select[@id='currency']");
     By btnProcess = By.xpath("//button[contains(text(),'Process')]");
+    //endregion
 
+    //region Page Methods
     public OpenAccountPage openAccount(String user, String currency) {
         selectItem(userSelect, user);
         selectItem(currencySelect, currency);
@@ -25,6 +28,7 @@ public class OpenAccountPage extends BasePage {
         driver.switchTo().alert().accept();
         return this;
     }
+    //endregion
 
 
 }

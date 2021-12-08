@@ -12,14 +12,15 @@ import pages.Page;
 
 public class BaseTest {
 
+    //region Variables
     protected WebDriver driver;
     protected ChromeOptions chromeOptions;
     public Page page;
+    //endregion
 
 
     @BeforeClass
     public void setUp() {
-        System.out.println("BeforeClass setup method");
         WebDriverManager.chromedriver().setup();
         chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(false);
@@ -29,14 +30,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void methodSetup() {
-        System.out.println("BeforeMethod methodSetup");
         page = new BasePage(driver);
 
     }
 
     @AfterClass
     public void tearDown() {
-        System.out.println("tearDown");
         driver.quit();
     }
 }

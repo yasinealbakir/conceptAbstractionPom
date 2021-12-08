@@ -11,7 +11,7 @@ public class CustomerAddTest extends BaseTest {
         page.getInstance(LoginPage.class)
                 .signIn()
                 .navigateCustomerAddPage()
-                .defineCustomerAdd("Yasin", "Engin", "06690")
+                .defineCustomerAdd("Yasin", "Albakır", "06690")
                 .verifyTestResult("Customer added successfully with customer");
     }
 

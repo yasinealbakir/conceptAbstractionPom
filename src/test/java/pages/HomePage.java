@@ -8,9 +8,12 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    //region Page Elements
     By btnAddCustomer = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]");
     By btnOpenAccount = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[1]/button[2]");
+    //endregion
 
+    //region Page Methods
     public CustomerAddPage navigateCustomerAddPage() {
         System.out.println("Customer Add sayfası açılıyor.");
         click(btnAddCustomer);
@@ -21,4 +24,5 @@ public class HomePage extends BasePage {
         click(btnOpenAccount);
         return getInstance(OpenAccountPage.class);
     }
+    //endregion
 }
