@@ -15,7 +15,6 @@ public class HomePage extends BasePage {
 
     //region Page Methods
     public CustomerAddPage navigateCustomerAddPage() {
-        System.out.println("Customer Add sayfası açılıyor.");
         click(btnAddCustomer);
         return getInstance(CustomerAddPage.class);
     }

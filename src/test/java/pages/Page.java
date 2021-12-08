@@ -39,5 +39,4 @@ public abstract class Page {
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
         return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(this.driver);
     }
-
 }

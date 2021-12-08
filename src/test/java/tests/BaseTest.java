@@ -20,7 +20,7 @@ public class BaseTest {
 
 
     @BeforeClass
-    public void setUp() {
+    public void classSetUp() {
         WebDriverManager.chromedriver().setup();
         chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(false);

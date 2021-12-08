@@ -19,7 +19,6 @@ public class CustomerAddPage extends BasePage {
 
     //region Page Methods
     public CustomerAddPage defineCustomerAdd(String name, String lastname, String postCode) {
-        System.out.println("customer add form alanları dolduruluyor.");
         writeText(txtFirstName, name);
         writeText(txtLastName, lastname);
         writeText(txtPostCode, postCode);
