@@ -1,30 +1,26 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import enums.DriverType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import pages.Page;
+import utils.BrowserManager;
+
 
 public class BaseTest {
 
     //region Variables
-    protected WebDriver driver;
-    protected ChromeOptions chromeOptions;
+    WebDriver driver;
     public Page page;
     //endregion
 
-
+    //region Methods
     @BeforeClass
-    public void classSetUp() {
-        WebDriverManager.chromedriver().setup();
-        chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(false);
-        driver = new ChromeDriver(chromeOptions);
+    public void classSetUp() throws Exception {
+        driver = BrowserManager.getDriver(DriverType.Chrome);
         driver.manage().window().maximize();
     }
 
@@ -38,4 +34,5 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
     }
+    //endregion
 }
