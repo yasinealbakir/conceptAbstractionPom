@@ -19,31 +19,31 @@ public class BasePage extends Page {
 
     @Override
     public void click(By locator) {
-        waitElementToClickable(locator, 500).click();
+        waitElementToClickable(locator, 5).click();
     }
 
     @Override
     public WebElement waitElementToAppear(By locator, long timeout) {
-        slowDown(timeout);
+        slowDown(500);
         wait = new WebDriverWait(driver, timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     @Override
     public WebElement waitElementToClickable(By locator, long timeout) {
-        slowDown(timeout);
+        slowDown(500);
         wait = new WebDriverWait(driver, timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     @Override
     public void writeText(By locator, String text) {
-        waitElementToAppear(locator, 100).sendKeys(text);
+        waitElementToAppear(locator, 5).sendKeys(text);
     }
 
     @Override
     public String readText(By locator) {
-        return waitElementToAppear(locator, 100).getText();
+        return waitElementToAppear(locator, 5).getText();
     }
 
     @Override
@@ -53,12 +53,12 @@ public class BasePage extends Page {
 
     @Override
     public WebElement find(By locator) {
-        return waitElementToAppear(locator, 500).findElement(locator);
+        return waitElementToAppear(locator, 5).findElement(locator);
     }
 
     @Override
     public List<WebElement> multipleFind(By locator) {
-        return waitElementToAppear(locator, 500).findElements(locator);
+        return waitElementToAppear(locator, 5).findElements(locator);
     }
 
     @Override
