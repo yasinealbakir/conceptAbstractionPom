@@ -2,11 +2,12 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class OpenAccountPage extends BasePage {
-    public OpenAccountPage(WebDriver driver) {
-        super(driver);
+    public OpenAccountPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
 
     //region Page ELements
@@ -26,7 +27,7 @@ public class OpenAccountPage extends BasePage {
     public OpenAccountPage verifyTestResult(String expect) {
         slowDown(500);
         Assert.assertTrue(getAlertboxText().contains(expect));
-        driver.switchTo().alert().accept();
+        acceptAlertBox();
         return this;
     }
     //endregion

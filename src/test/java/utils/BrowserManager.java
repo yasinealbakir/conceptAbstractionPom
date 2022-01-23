@@ -21,6 +21,7 @@ public class BrowserManager {
         } catch (BrowserException exception) {
             exception.getMessage();
         }
+        driver.manage().window().maximize();
         return driver;
     }
 }

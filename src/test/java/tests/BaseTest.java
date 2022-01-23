@@ -2,6 +2,7 @@ package tests;
 
 import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +15,7 @@ public class BaseTest {
 
     //region Variables
     WebDriver driver;
+    WebDriverWait wait;
     public Page page;
     //endregion
 
@@ -21,12 +23,13 @@ public class BaseTest {
     @BeforeClass
     public void classSetUp() throws Exception {
         driver = BrowserManager.getDriver(BrowserType.Chrome);
-        driver.manage().window().maximize();
     }
 
     @BeforeMethod
     public void methodSetup() {
-        page = new BasePage(driver);
+        wait = new WebDriverWait(driver, 10);
+        page = new BasePage(driver, wait);
+
 
     }
 

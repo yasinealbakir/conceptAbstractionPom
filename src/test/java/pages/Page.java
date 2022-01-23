@@ -10,16 +10,18 @@ import java.util.List;
 
 public abstract class Page {
     WebDriver driver;
+    WebDriverWait wait;
 
-    public Page(WebDriver driver) {
+    public Page(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
+        this.wait = wait;
     }
 
     public abstract void click(By locator);
 
-    public abstract WebElement waitElementToAppear(By locator, long timeout);
+    public abstract WebElement waitElementToAppear(By locator);
 
-    public abstract WebElement waitElementToClickable(By locator, long timeout);
+    public abstract WebElement waitElementToClickable(By locator);
 
     public abstract void writeText(By locator, String text);
 
@@ -31,14 +33,14 @@ public abstract class Page {
 
     public abstract List<WebElement> multipleFind(By locator);
 
-    public abstract void acceptAlertbox();
-
     public abstract void selectItem(By locator, String value);
 
     public abstract void slowDown(long miliSecond);
 
+    public abstract void acceptAlertBox();
+
     @SneakyThrows
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
-        return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(this.driver);
+        return pageClass.getDeclaredConstructor(WebDriver.class, WebDriverWait.class).newInstance(this.driver, this.wait);
     }
 }
