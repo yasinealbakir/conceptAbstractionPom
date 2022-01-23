@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static collections.BaseCollection.URL;
+import static configs.BaseCollection.URL;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {

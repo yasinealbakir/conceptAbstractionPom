@@ -1,19 +1,19 @@
 package utils;
 
-import enums.DriverType;
+import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
 
 public class BrowserManager {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver(DriverType browser) {
+    public static WebDriver getDriver(BrowserType browser) {
         try {
-            if (browser == DriverType.Chrome) {
+            if (browser == BrowserType.Chrome) {
                 driver = new Chrome().createInstance();
-            } else if (browser == DriverType.Firefox) {
+            } else if (browser == BrowserType.Firefox) {
                 driver = new Firefox().createInstance();
-            } else if (browser == DriverType.Edge) {
+            } else if (browser == BrowserType.Edge) {
                 driver = new Edge().createInstance();
             } else {
                 throw new BrowserException(browser + " is not supported");

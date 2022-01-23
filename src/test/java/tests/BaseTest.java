@@ -1,6 +1,6 @@
 package tests;
 
-import enums.DriverType;
+import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,7 +20,7 @@ public class BaseTest {
     //region Methods
     @BeforeClass
     public void classSetUp() throws Exception {
-        driver = BrowserManager.getDriver(DriverType.Chrome);
+        driver = BrowserManager.getDriver(BrowserType.Chrome);
         driver.manage().window().maximize();
     }
 
@@ -34,5 +34,6 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
     }
+
     //endregion
 }

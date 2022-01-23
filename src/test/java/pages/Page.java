@@ -10,16 +10,16 @@ import java.util.List;
 
 public abstract class Page {
     WebDriver driver;
-    WebDriverWait wait;
 
     public Page(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(this.driver, 10);
     }
 
     public abstract void click(By locator);
 
-    public abstract WebElement waitElement(By locator);
+    public abstract WebElement waitElementToAppear(By locator, long timeout);
+
+    public abstract WebElement waitElementToClickable(By locator, long timeout);
 
     public abstract void writeText(By locator, String text);
 
@@ -34,6 +34,8 @@ public abstract class Page {
     public abstract void acceptAlertbox();
 
     public abstract void selectItem(By locator, String value);
+
+    public abstract void slowDown(long miliSecond);
 
     @SneakyThrows
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {

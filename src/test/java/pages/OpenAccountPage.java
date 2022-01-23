@@ -24,6 +24,7 @@ public class OpenAccountPage extends BasePage {
     }
 
     public OpenAccountPage verifyTestResult(String expect) {
+        slowDown(500);
         Assert.assertTrue(getAlertboxText().contains(expect));
         driver.switchTo().alert().accept();
         return this;

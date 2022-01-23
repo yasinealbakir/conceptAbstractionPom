@@ -28,7 +28,7 @@ public class CustomerAddPage extends BasePage {
 
     @SneakyThrows
     public CustomerAddPage verifyTestResult(String expect) {
-        Thread.sleep(500);
+        slowDown(500);
         Assert.assertTrue(getAlertboxText().contains(expect));
         driver.switchTo().alert().accept();
         return this;

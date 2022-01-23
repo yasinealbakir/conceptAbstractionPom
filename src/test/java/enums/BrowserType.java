@@ -1,6 +1,6 @@
 package enums;
 
-public enum DriverType {
+public enum BrowserType {
     Chrome,
     Firefox,
     Edge,
