@@ -1,5 +1,8 @@
 package pages;
 
+import configs.ConfigReader;
+import configs.IConfig;
+import org.aeonbits.owner.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class BasePage extends Page {
+
+    IConfig config;
 
     public BasePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -75,5 +80,10 @@ public class BasePage extends Page {
     @Override
     public void acceptAlertBox() {
         driver.switchTo().alert().accept();
+    }
+
+    @Override
+    public IConfig getConfigs() {
+        return config = ConfigReader.reader(IConfig.class);
     }
 }
