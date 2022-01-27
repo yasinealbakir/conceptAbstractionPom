@@ -1,4 +1,4 @@
-package utils;
+package utils.browser;
 
 import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ public class BrowserManager {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver(BrowserType browser) {
+    public static WebDriver getDriver(BrowserType browser) throws InterruptedException {
         try {
             if (browser == BrowserType.Chrome) {
                 driver = new Chrome().createInstance();
@@ -22,6 +22,7 @@ public class BrowserManager {
             exception.getMessage();
         }
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         return driver;
     }
 }

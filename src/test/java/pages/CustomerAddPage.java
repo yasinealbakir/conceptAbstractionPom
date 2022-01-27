@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.log.Log;
 
 public class CustomerAddPage extends BasePage {
     public CustomerAddPage(WebDriver driver, WebDriverWait wait) {
@@ -20,6 +21,7 @@ public class CustomerAddPage extends BasePage {
 
     //region Page Methods
     public CustomerAddPage defineCustomerAdd(String name, String lastname, String postCode) {
+        Log.info("Filling out the require fields");
         writeText(txtFirstName, name);
         writeText(txtLastName, lastname);
         writeText(txtPostCode, postCode);
@@ -29,6 +31,7 @@ public class CustomerAddPage extends BasePage {
 
     @SneakyThrows
     public CustomerAddPage verifyTestResult(String expect) {
+        Log.info("Verifying test result");
         slowDown(500);
         Assert.assertTrue(getAlertboxText().contains(expect));
         acceptAlertBox();

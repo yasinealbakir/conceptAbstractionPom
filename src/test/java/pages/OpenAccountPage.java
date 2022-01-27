@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.log.Log;
 
 public class OpenAccountPage extends BasePage {
     public OpenAccountPage(WebDriver driver, WebDriverWait wait) {
@@ -18,6 +19,7 @@ public class OpenAccountPage extends BasePage {
 
     //region Page Methods
     public OpenAccountPage openAccount(String user, String currency) {
+        Log.info("Filling out the require fields");
         selectItem(userSelect, user);
         selectItem(currencySelect, currency);
         click(btnProcess);
@@ -25,6 +27,7 @@ public class OpenAccountPage extends BasePage {
     }
 
     public OpenAccountPage verifyTestResult(String expect) {
+        Log.info("Verifying test result");
         slowDown(500);
         Assert.assertTrue(getAlertboxText().contains(expect));
         acceptAlertBox();

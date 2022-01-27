@@ -1,6 +1,5 @@
 package tests;
 
-import configs.IConfig;
 import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,15 +8,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import pages.Page;
-import utils.BrowserManager;
+import utils.browser.BrowserManager;
 
 
 public class BaseTest {
 
     //region Variables
-    WebDriver driver;
-    WebDriverWait wait;
-    public Page page;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Page page;
     //endregion
 
     //region Methods
@@ -37,6 +36,10 @@ public class BaseTest {
     @AfterClass
     public void tearDown() {
         driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     //endregion
