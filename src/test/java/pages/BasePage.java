@@ -77,6 +77,7 @@ public class BasePage extends Page {
         }
     }
 
+
     @Override
     public void acceptAlertBox() {
         driver.switchTo().alert().accept();

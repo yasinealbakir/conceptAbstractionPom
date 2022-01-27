@@ -29,8 +29,6 @@ public class BaseTest {
     public void methodSetup() {
         wait = new WebDriverWait(driver, 10);
         page = new BasePage(driver, wait);
-
-
     }
 
     @AfterClass

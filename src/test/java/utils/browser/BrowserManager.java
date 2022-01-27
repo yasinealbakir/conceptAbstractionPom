@@ -22,7 +22,6 @@ public class BrowserManager {
             exception.getMessage();
         }
         driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
         return driver;
     }
 }

@@ -17,5 +17,7 @@ public class LoginPage extends BasePage {
         driver.get(getConfigs().url());
         click(btnEnter);
         return getInstance(HomePage.class);
+
+
     }
 }
