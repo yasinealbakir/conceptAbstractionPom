@@ -3,6 +3,8 @@ package utils.browser;
 import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class BrowserManager {
 
     private static WebDriver driver;
@@ -22,6 +24,7 @@ public class BrowserManager {
             exception.getMessage();
         }
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
 }

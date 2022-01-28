@@ -18,7 +18,6 @@ public class BaseTest {
 
     //region Variables
     protected WebDriver driver;
-    protected WebDriverWait wait;
     protected Page page;
     protected Faker faker;
     //endregion
@@ -31,8 +30,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void methodSetup() {
-        wait = new WebDriverWait(driver, 10);
-        page = new BasePage(driver, wait);
+        page = new BasePage(driver);
         faker = new Faker(new Locale("tr"));
     }
 

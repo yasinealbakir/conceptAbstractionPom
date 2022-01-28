@@ -3,13 +3,12 @@ package pages;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.log.Log;
 
 public class CustomerAddPage extends BasePage {
-    public CustomerAddPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
+    public CustomerAddPage(WebDriver driver) {
+        super(driver);
     }
 
     //region Page Elements
@@ -32,7 +31,7 @@ public class CustomerAddPage extends BasePage {
     @SneakyThrows
     public CustomerAddPage verifyTestResult(String expect) {
         Log.info("Verifying test result");
-        slowDown(500);
+        slowDown(1);
         Assert.assertTrue(getAlertboxText().contains(expect));
         acceptAlertBox();
         return this;

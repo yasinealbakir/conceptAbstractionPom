@@ -15,42 +15,45 @@ import java.util.List;
 
 public class BasePage extends Page {
 
+    WebDriverWait wait;
     IConfig config;
 
-    public BasePage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
+    public BasePage(WebDriver driver) {
+        super(driver);
     }
 
     @Override
     @SneakyThrows
     public void click(By locator) {
-        waitElementToClickable(locator).click();
+        waitElementToClickable(locator, 10).click();
     }
 
     @Override
     @SneakyThrows
-    public WebElement waitElementToAppear(By locator) {
-        slowDown(200);
+    public WebElement waitElementToAppear(By locator, int timeOutSecond) {
+        slowDown(0.5);
+        wait = new WebDriverWait(driver, timeOutSecond);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     @Override
     @SneakyThrows
-    public WebElement waitElementToClickable(By locator) {
-        slowDown(200);
+    public WebElement waitElementToClickable(By locator, int timeOutSecond) {
+        slowDown(0.5);
+        wait = new WebDriverWait(driver, timeOutSecond);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     @Override
     @SneakyThrows
     public void writeText(By locator, String text) {
-        waitElementToAppear(locator).sendKeys(text);
+        waitElementToAppear(locator, 10).sendKeys(text);
     }
 
     @Override
     @SneakyThrows
     public String readText(By locator) {
-        return waitElementToAppear(locator).getText();
+        return waitElementToAppear(locator, 10).getText();
     }
 
     @Override
@@ -62,13 +65,13 @@ public class BasePage extends Page {
     @Override
     @SneakyThrows
     public WebElement find(By locator) {
-        return waitElementToAppear(locator).findElement(locator);
+        return waitElementToAppear(locator, 10).findElement(locator);
     }
 
     @Override
     @SneakyThrows
     public List<WebElement> multipleFind(By locator) {
-        return waitElementToAppear(locator).findElements(locator);
+        return waitElementToAppear(locator, 10).findElements(locator);
     }
 
     @Override
@@ -79,13 +82,8 @@ public class BasePage extends Page {
 
     @Override
     @SneakyThrows
-    public void slowDown(long milliSecond) {
-        try {
-            Thread.sleep(milliSecond);
-
-        } catch (InterruptedException exception) {
-            exception.getMessage();
-        }
+    public void slowDown(double second) {
+        Thread.sleep((long) (second * 1000));
     }
 
 
@@ -99,5 +97,10 @@ public class BasePage extends Page {
     @SneakyThrows
     public IConfig getConfigs() {
         return config = ConfigReader.reader(IConfig.class);
+    }
+
+    @Override
+    public void navigateUrl(String url) {
+        driver.get(url);
     }
 }
