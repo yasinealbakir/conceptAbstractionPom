@@ -1,5 +1,6 @@
 package pages;
 
+import core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.log.Log;

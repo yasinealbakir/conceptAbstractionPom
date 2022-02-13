@@ -1,9 +1,8 @@
 package pages;
 
-import lombok.SneakyThrows;
+import core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import utils.log.Log;
 
 public class CustomerAddPage extends BasePage {
@@ -25,15 +24,6 @@ public class CustomerAddPage extends BasePage {
         writeText(txtLastName, lastname);
         writeText(txtPostCode, postCode);
         click(btnSave);
-        return this;
-    }
-
-    @SneakyThrows
-    public CustomerAddPage verifyTestResult(String expect) {
-        Log.info("Verifying test result");
-        slowDown(1);
-        Assert.assertTrue(getAlertboxText().contains(expect));
-        acceptAlertBox();
         return this;
     }
     //endregion

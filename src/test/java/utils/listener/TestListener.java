@@ -1,7 +1,7 @@
 package utils.listener;
 
 import org.testng.ITestListener;
-import tests.BaseTest;
+import core.BaseTest;
 import com.aventstack.extentreports.Status;
 import lombok.SneakyThrows;
 import org.openqa.selenium.OutputType;

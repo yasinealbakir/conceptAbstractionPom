@@ -1,5 +1,6 @@
 package pages;
 
+import core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -25,13 +26,6 @@ public class OpenAccountPage extends BasePage {
         return this;
     }
 
-    public OpenAccountPage verifyTestResult(String expect) {
-        Log.info("Verifying test result");
-        slowDown(1);
-        Assert.assertTrue(getAlertboxText().contains(expect));
-        acceptAlertBox();
-        return this;
-    }
     //endregion
 
 

@@ -1,15 +1,15 @@
-package pages;
+package core;
 
 import configs.ConfigReader;
 import configs.IConfig;
 import lombok.SneakyThrows;
-import org.aeonbits.owner.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -102,5 +102,16 @@ public class BasePage extends Page {
     @Override
     public void navigateUrl(String url) {
         driver.get(url);
+    }
+
+    @Override
+    public void verifyAlertboxText(String text) {
+        Assert.assertTrue(getAlertboxText().contains(text));
+        acceptAlertBox();
+    }
+
+    @Override
+    public void verifyIsDisplayed(By element) {
+        Assert.assertTrue(find(element).isDisplayed());
     }
 }

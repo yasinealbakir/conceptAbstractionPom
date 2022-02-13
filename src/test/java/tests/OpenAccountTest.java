@@ -1,5 +1,6 @@
 package tests;
 
+import core.BaseTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -17,7 +18,7 @@ public class OpenAccountTest extends BaseTest {
                 .signIn()
                 .navigateOpenAccountPage()
                 .openAccount("Harry Potter", "Dollar")
-                .verifyTestResult("Account created successfully");
+                .verifyAlertboxText("Account created successfully");
     }
 
     @Test
@@ -26,6 +27,6 @@ public class OpenAccountTest extends BaseTest {
         page.getInstance(HomePage.class)
                 .navigateOpenAccountPage()
                 .openAccount("Neville Longbottom", "Pound")
-                .verifyTestResult("Account created successfully");
+                .verifyAlertboxText("Account created successfully");
     }
 }

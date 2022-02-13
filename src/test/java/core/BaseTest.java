@@ -1,14 +1,13 @@
-package tests;
+package core;
 
 import com.github.javafaker.Faker;
 import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.BasePage;
-import pages.Page;
+import core.BasePage;
+import core.Page;
 import utils.browser.BrowserManager;
 
 import java.util.Locale;

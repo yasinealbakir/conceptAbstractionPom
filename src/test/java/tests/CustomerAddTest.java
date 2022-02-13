@@ -1,5 +1,6 @@
 package tests;
 
+import core.BaseTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -17,7 +18,7 @@ public class CustomerAddTest extends BaseTest {
                 .signIn()
                 .navigateCustomerAddPage()
                 .defineCustomerAdd(faker.name().firstName(), faker.name().lastName(), faker.address().zipCode())
-                .verifyTestResult("Customer added successfully with customer");
+                .verifyAlertboxText("Customer added successfully with customer");
     }
 
     @Test
@@ -26,7 +27,7 @@ public class CustomerAddTest extends BaseTest {
         page.getInstance(HomePage.class)
                 .navigateCustomerAddPage()
                 .defineCustomerAdd(" ", " ", " ")
-                .verifyTestResult("Please check the details. Customer may be duplicate");
+                .verifyAlertboxText("Please check the details. Customer may be duplicate");
     }
 
 

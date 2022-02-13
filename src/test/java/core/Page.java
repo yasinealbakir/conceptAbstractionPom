@@ -1,11 +1,10 @@
-package pages;
+package core;
 
 import configs.IConfig;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -41,6 +40,10 @@ public abstract class Page {
     public abstract IConfig getConfigs();
 
     public abstract void navigateUrl(String url);
+
+    public abstract void verifyAlertboxText(String text);
+
+    public abstract void verifyIsDisplayed(By element);
 
     @SneakyThrows
     public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
