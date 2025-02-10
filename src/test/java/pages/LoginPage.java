@@ -10,7 +10,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    By btnEnter = By.xpath("//button[contains(text(),'Bank Manager Login')]");
+    By btnEnter = By.xpath("//button[.='Bank Manager Login']");
 
     public HomePage signIn() {
         Log.info("Login Page is opening");

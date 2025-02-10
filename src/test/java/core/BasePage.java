@@ -2,6 +2,7 @@ package core;
 
 import configs.ConfigReader;
 import configs.IConfig;
+import java.time.Duration;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BasePage extends Page {
 
@@ -25,12 +28,12 @@ public class BasePage extends Page {
     @Override
     @SneakyThrows
     public void click(By locator) {
-        waitElementToClickable(locator, 10).click();
+        waitElementToClickable(locator, Duration.ofSeconds(10L)).click();
     }
 
     @Override
     @SneakyThrows
-    public WebElement waitElementToAppear(By locator, int timeOutSecond) {
+    public WebElement waitElementToAppear(By locator, Duration timeOutSecond) {
         slowDown(0.5);
         wait = new WebDriverWait(driver, timeOutSecond);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -38,7 +41,7 @@ public class BasePage extends Page {
 
     @Override
     @SneakyThrows
-    public WebElement waitElementToClickable(By locator, int timeOutSecond) {
+    public WebElement waitElementToClickable(By locator, Duration timeOutSecond) {
         slowDown(0.5);
         wait = new WebDriverWait(driver, timeOutSecond);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -47,13 +50,13 @@ public class BasePage extends Page {
     @Override
     @SneakyThrows
     public void writeText(By locator, String text) {
-        waitElementToAppear(locator, 10).sendKeys(text);
+        waitElementToAppear(locator, Duration.ofSeconds(10L)).sendKeys(text);
     }
 
     @Override
     @SneakyThrows
     public String readText(By locator) {
-        return waitElementToAppear(locator, 10).getText();
+        return waitElementToAppear(locator, Duration.ofSeconds(10L)).getText();
     }
 
     @Override
@@ -65,13 +68,13 @@ public class BasePage extends Page {
     @Override
     @SneakyThrows
     public WebElement find(By locator) {
-        return waitElementToAppear(locator, 10).findElement(locator);
+        return waitElementToAppear(locator, Duration.ofSeconds(10L)).findElement(locator);
     }
 
     @Override
     @SneakyThrows
     public List<WebElement> multipleFind(By locator) {
-        return waitElementToAppear(locator, 10).findElements(locator);
+        return waitElementToAppear(locator, Duration.ofSeconds(10L)).findElements(locator);
     }
 
     @Override
@@ -83,7 +86,11 @@ public class BasePage extends Page {
     @Override
     @SneakyThrows
     public void slowDown(double second) {
-        Thread.sleep((long) (second * 1000));
+        try {
+            Thread.sleep((long) (second * 1000));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(BasePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 

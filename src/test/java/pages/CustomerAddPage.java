@@ -11,10 +11,10 @@ public class CustomerAddPage extends BasePage {
     }
 
     //region Page Elements
-    By txtFirstName = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]");
-    By txtLastName = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/input[1]");
-    By txtPostCode = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[3]/input[1]");
-    By btnSave = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/button[1]");
+    By txtFirstName = By.cssSelector("[placeholder='First Name']");
+    By txtLastName = By.cssSelector("[placeholder='Last Name']");
+    By txtPostCode = By.cssSelector("[placeholder='Post Code']");
+    By btnSave = By.cssSelector(".btn-default");
     //endregion
 
     //region Page Methods

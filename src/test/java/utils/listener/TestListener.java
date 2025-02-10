@@ -10,9 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import utils.log.Log;
-import utils.report.ExtentManager;
 
 import java.util.Objects;
+import utils.report.ExtentManager;
 
 import static utils.report.ExtentTestManager.getTest;
 

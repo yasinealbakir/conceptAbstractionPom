@@ -15,7 +15,7 @@ public class ExtentManager {
         ExtentSparkReporter reporter = new ExtentSparkReporter(reportFileLocation);
         reporter.config().setReportName("Demo Project Regression Test Report");
         extentReports.attachReporter(reporter);
-        extentReports.setSystemInfo("Author", "yasin.albakir");
+        extentReports.setSystemInfo("Author", "yasin");
         return extentReports;
     }
 }

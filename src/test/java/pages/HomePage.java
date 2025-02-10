@@ -11,8 +11,8 @@ public class HomePage extends BasePage {
     }
 
     //region Page Elements
-    By btnAddCustomer = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[1]/button[1]");
-    By btnOpenAccount = By.xpath("//body/div[3]/div[1]/div[2]/div[1]/div[1]/button[2]");
+    By btnAddCustomer = By.xpath("//button[contains(.,'Add Customer')]");
+    By btnOpenAccount = By.xpath("//button[contains(.,'Open Account')]");
     //endregion
 
     //region Page Methods

@@ -16,6 +16,7 @@ public class ExtentTestManager {
     }
 
     public static synchronized ExtentTest startTest(String testName, String desc) {
+        System.out.println("startTest metodundayım " + testName);
         ExtentTest test = extent.createTest(testName, desc);
         extentTestMap.put((int) Thread.currentThread().getId(), test);
         return test;
